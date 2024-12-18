@@ -1,0 +1,117 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
+---
+# renovate: datasource=docker depName=ghcr.io/siderolabs/installer
+talosVersion: v1.9.0
+# renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
+kubernetesVersion: v1.32.0
+
+clusterName: "papagolab"
+endpoint: https://192.168.70.30:6443
+
+clusterPodNets:
+  - "10.69.0.0/16"
+clusterSvcNets:
+  - "10.96.0.0/16"
+
+additionalApiServerCertSans: &sans
+  - "192.168.70.30"
+  - "127.0.0.1"
+additionalMachineCertSans: *sans
+
+# Disable built-in Flannel to use Cilium
+cniConfig:
+  name: none
+
+nodes:
+  - hostname: "papagolab-ctrl-01"
+    ipAddress: "192.168.70.31"
+    installDisk: "/dev/sda"
+    machineSpec:
+      secureboot: true
+    talosImageURL: factory.talos.dev/installer-secureboot/e3fab82b561b5e559cdf1c0b1e5950c0e52700b9208a2cfaa5b18454796f3a7e
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:70:7f:12"
+        dhcp: false
+        addresses:
+          - "192.168.70.31/24"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "192.168.70.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.70.30"
+  - hostname: "papagolab-ctrl-02"
+    ipAddress: "192.168.70.32"
+    installDisk: "/dev/sda"
+    machineSpec:
+      secureboot: true
+    talosImageURL: factory.talos.dev/installer-secureboot/e3fab82b561b5e559cdf1c0b1e5950c0e52700b9208a2cfaa5b18454796f3a7e
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:97:25:35"
+        dhcp: false
+        addresses:
+          - "192.168.70.32/24"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "192.168.70.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.70.30"
+  - hostname: "papagolab-ctrl-03"
+    ipAddress: "192.168.70.33"
+    installDisk: "/dev/sda"
+    machineSpec:
+      secureboot: true
+    talosImageURL: factory.talos.dev/installer-secureboot/e3fab82b561b5e559cdf1c0b1e5950c0e52700b9208a2cfaa5b18454796f3a7e
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "bc:24:11:7e:bd:10"
+        dhcp: false
+        addresses:
+          - "192.168.70.33/24"
+        routes:
+          - network: 0.0.0.0/0
+            gateway: "192.168.70.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.70.30"
+
+# Global patches
+patches:
+  - # Encrypt system disk with TPM
+    |-
+    machine:
+      systemDiskEncryption:
+        ephemeral:
+          provider: luks2
+          keys:
+            - slot: 0
+              tpm: {}
+        state:
+          provider: luks2
+          keys:
+            - slot: 0
+              tpm: {}
+  - "@./patches/global/cluster-discovery.yaml"
+  - "@./patches/global/containerd.yaml"
+  - "@./patches/global/disable-search-domain.yaml"
+  - "@./patches/global/dns.yaml"
+  - "@./patches/global/hostdns.yaml"
+  - "@./patches/global/kubelet.yaml"
+  - "@./patches/global/ntp.yaml"
+  - "@./patches/global/openebs-local.yaml"
+  - "@./patches/global/sysctl.yaml"
+
+# Controller patches
+controlPlane:
+  patches:
+    - "@./patches/controller/api-access.yaml"
+    - "@./patches/controller/cluster.yaml"
+    - "@./patches/controller/disable-admission-controller.yaml"
+    - "@./patches/controller/etcd.yaml"
+

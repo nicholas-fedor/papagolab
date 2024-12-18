@@ -1,0 +1,3 @@
+---
+providerRegex: ^(papagolab-ctrl-01|papagolab-ctrl-02|papagolab-ctrl-03)$
+bypassDnsResolution: true

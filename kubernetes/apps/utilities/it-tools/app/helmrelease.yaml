@@ -32,8 +32,8 @@ spec:
         containers:
           app:
             image:
-              repository: ghcr.io/corentinth/it-tools
-              tag: latest
+              repository: corentinth/it-tools
+              tag: 2024.10.22-7ca5933
     service:
       app:
         controller: it-tools

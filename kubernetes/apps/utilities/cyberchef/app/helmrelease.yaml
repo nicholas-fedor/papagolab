@@ -33,7 +33,7 @@ spec:
             env:
               HTTP_PORT: &port 8000
               LOG_WITHOUT_NEWLINE: true
-              LOG_IGNORE_PATH: /healthz
+              LOG_IGNORE_PATH: /
               PROMETHEUS_ENABLED: true
             probes:
               liveness: &probes
@@ -41,7 +41,7 @@ spec:
                 custom: true
                 spec:
                   httpGet:
-                    path: /healthz
+                    path: /
                     port: *port
                   initialDelaySeconds: 0
                   periodSeconds: 10
@@ -75,7 +75,7 @@ spec:
         endpoints:
           - port: http
             scheme: http
-            path: /metrics
+            path: /
             interval: 1m
             scrapeTimeout: 10s
     ingress:

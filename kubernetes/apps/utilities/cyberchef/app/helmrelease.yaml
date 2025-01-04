@@ -28,10 +28,10 @@ spec:
         containers:
           app:
             image:
-              repository: ghcr.io/gchq/cyberchef
-              tag: latest
+              repository: mpepping/cyberchef
+              tag: v10.19.4
             env:
-              HTTP_PORT: &port 8080
+              HTTP_PORT: &port 8000
               LOG_WITHOUT_NEWLINE: true
               LOG_IGNORE_PATH: /healthz
               PROMETHEUS_ENABLED: true

@@ -8,9 +8,9 @@
         "Kubernetes": "./kubernetes/*.yaml"
     },
     "vs-kubernetes": {
-        "vs-kubernetes.kubeconfig": "./kubeconfig",
+        "vs-kubernetes.kubeconfig": "/home/nick/Projects/SysAdmin/papagolab/kubeconfig",
         "vs-kubernetes.knownKubeconfigs": [
-          "./kubeconfig"
-      ]
+            "/home/nick/Projects/SysAdmin/papagolab/kubeconfig"
+        ]
     }
 }

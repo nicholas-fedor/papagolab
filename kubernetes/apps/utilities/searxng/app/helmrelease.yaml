@@ -28,7 +28,7 @@ spec:
         containers:
           app:
             image:
-              repository: searxng/searxng
+              repository: docker.io/searxng/searxng
               tag: latest
             env:
               HTTP_PORT: &port 8080

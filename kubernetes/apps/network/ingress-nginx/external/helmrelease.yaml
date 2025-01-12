@@ -60,6 +60,15 @@ spec:
         proxy-body-size: 0
         proxy-buffer-size: 16k
         ssl-protocols: TLSv1.3 TLSv1.2
+        ssl-redirect: "true"
+        force-ssl-redirect: "true"
+        hsts: "true"
+        hsts-include-subdomains: "true"
+        hsts-preload: "true"
+        server-snippet: |
+          if ($http_x_forwarded_proto = "http") {
+            return 301 https://$host$request_uri;
+          }
       metrics:
         enabled: true
         serviceMonitor:

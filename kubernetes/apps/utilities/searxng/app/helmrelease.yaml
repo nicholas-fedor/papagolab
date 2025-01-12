@@ -29,7 +29,7 @@ spec:
           app:
             image:
               repository: docker.io/searxng/searxng
-              tag: latest
+              tag: 2025.1.10-94a0b415e
             env:
               HTTP_PORT: &port 8080
               LOG_WITHOUT_NEWLINE: true

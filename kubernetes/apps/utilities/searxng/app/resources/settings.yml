@@ -2,7 +2,7 @@
 use_default_settings: true
 
 server:
-  base_url: "${SEARXNG_BASE_URL}"
+  base_url: "https://searxng.papagolab.com"
   limiter: true
   image_proxy: true
   method: GET # https://github.com/searxng/searxng/pull/3619
@@ -20,7 +20,7 @@ search:
     - nl-NL
 
 general:
-  instance_name: "SearXNG-${SEARXNG_INSTANCE_NAME}"
+  instance_name: "PapagoLabs SearXNG"
 
 ui:
   default_theme: simple

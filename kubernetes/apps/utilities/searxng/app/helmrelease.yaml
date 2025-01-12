@@ -35,8 +35,6 @@ spec:
               LOG_WITHOUT_NEWLINE: true
               LOG_IGNORE_PATH: /
               PROMETHEUS_ENABLED: true
-              SEARXNG_BASE_URL: https://searxng.papagolab.com/
-              SEARXNG_INSTANCE_NAME: "${CLUSTER_DOMAIN}"
               SEARXNG_SECRET_KEY:
                 valueFrom:
                   secretKeyRef:

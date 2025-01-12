@@ -24,6 +24,11 @@ spec:
   values:
     controllers:
       searxng:
+        dnsPolicy: "None"
+        dnsConfig:
+          nameservers:
+          - "1.1.1.2" # Cloudflare DNS that also blocks malware
+          - "1.0.0.2" # Cloudflare DNS that also blocks malware
         strategy: RollingUpdate
         containers:
           app:
@@ -40,11 +45,6 @@ spec:
                   secretKeyRef:
                     name: searxng-secret-key
                     key: SEARXNG_SECRET_KEY
-            dnsPolicy: "None"
-            dnsConfig:
-              nameservers:
-                - "1.1.1.2" # Cloudflare DNS that also blocks malware
-                - "1.0.0.2" # Cloudflare DNS that also blocks malware
             probes:
               liveness: &probes
                 enabled: true

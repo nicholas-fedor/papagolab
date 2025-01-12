@@ -40,7 +40,8 @@ spec:
               SEARXNG_SECRET_KEY:
                 valueFrom:
                   secretKeyRef:
-                    name: SEARXNG_SECRET_KEY
+                    name: searxng-secret-key
+                    key: searxng-secret-key
             probes:
               liveness: &probes
                 enabled: true

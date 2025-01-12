@@ -42,6 +42,7 @@ spec:
                   secretKeyRef:
                     name: searxng-secret-key
                     key: searxng-secret-key
+                    type: string
             probes:
               liveness: &probes
                 enabled: true

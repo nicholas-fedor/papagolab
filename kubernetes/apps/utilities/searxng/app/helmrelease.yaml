@@ -97,7 +97,7 @@ spec:
         type: configMap
         name: searxng-configmap
         globalMounts:
-          - path: /etc/searxng/settings.yml
+          - path: /etc/searxng/settings.yaml
             subPath: settings.yml
             readOnly: true
           - path: /etc/searxng/limiter.toml

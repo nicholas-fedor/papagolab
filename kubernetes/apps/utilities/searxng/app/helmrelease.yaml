@@ -24,13 +24,6 @@ spec:
   values:
     controllers:
       searxng:
-        pod:
-          dnsPolicy: "None"
-          dnsConfig:
-            nameservers:
-              - kube-dns.kube-system.svc.cluster.local
-              - "1.1.1.2" # Cloudflare DNS that also blocks malware
-              - "1.0.0.2" # Cloudflare DNS that also blocks malware
         strategy: RollingUpdate
         containers:
           app:

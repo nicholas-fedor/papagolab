@@ -39,8 +39,8 @@ spec:
               SEARXNG_INSTANCE_NAME: "${CLUSTER_DOMAIN}"
             envFrom:
               - secretRef:
-                  name: searxng-secret
-                  key: searxng-secret
+                  name: SEARXNG_SECRET_KEY
+                  key: SEARXNG_SECRET_KEY
             probes:
               liveness: &probes
                 enabled: true

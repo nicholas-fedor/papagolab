@@ -28,8 +28,14 @@ spec:
           dnsPolicy: "None"
           dnsConfig:
             nameservers:
-            - "1.1.1.2" # Cloudflare DNS that also blocks malware
-            - "1.0.0.2" # Cloudflare DNS that also blocks malware
+              - kube-dns.kube-system.svc.cluster.local
+              - "1.1.1.2" # Cloudflare DNS that also blocks malware
+              - "1.0.0.2" # Cloudflare DNS that also blocks malware
+            searches:
+              - utilities.svc.cluster.local
+              - svc.cluster.local
+              - cluster.local
+              - local
         strategy: RollingUpdate
         containers:
           app:

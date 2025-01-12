@@ -7,7 +7,7 @@ server:
   image_proxy: true
   method: GET # https://github.com/searxng/searxng/pull/3619
   public_instance: false
-  secret_key: ${SEARXNG_SECRET_KEY}
+  secret_key: "${SEARXNG_SECRET_KEY}"
 
 search:
   autocomplete: duckduckgo

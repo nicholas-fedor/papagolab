@@ -41,6 +41,7 @@ spec:
               LOG_WITHOUT_NEWLINE: true
               LOG_IGNORE_PATH: /
               PROMETHEUS_ENABLED: true
+              SEARXNG_REDIS_URL: redis://searxng-redis.utilities.svc.cluster.local:6379/0
               SEARXNG_SECRET_KEY:
                 valueFrom:
                   secretKeyRef:
@@ -59,15 +60,51 @@ spec:
                   timeoutSeconds: 1
                   failureThreshold: 3
               readiness: *probes
-            # securityContext:
-              # allowPrivilegeEscalation: false
-              # readOnlyRootFilesystem: true
-              # capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 10m
-              # limits:
-              #   memory: 64Mi
+                memory: 256Mi
+              limits:
+                memory: 2Gi
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
+                add:
+                  - CHOWN
+                  - SETGID
+                  - SETUID
+                  - DAC_OVERRIDE
+      redis:
+        pod:
+          securityContext:
+            runAsUser: 65534
+            runAsGroup: 65534
+        strategy: RollingUpdate
+        containers:
+          redis:
+            image:
+              repository: docker.io/valkey/valkey
+              tag: 8.0.2
+            args:
+              - --save
+              - ""
+              - --appendonly
+              - "no"
+            resources:
+              requests:
+                cpu: 5m
+                memory: 32Mi
+              limits:
+                memory: 128Mi
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                  - ALL
     # defaultPodOptions:
       # securityContext:
         # runAsNonRoot: true
@@ -80,6 +117,11 @@ spec:
         ports:
           http:
             port: *port
+      redis:
+        controller: redis
+        ports:
+          http:
+            port: 6379
     serviceMonitor:
       app:
         serviceName: searxng

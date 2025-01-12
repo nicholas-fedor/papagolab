@@ -40,6 +40,7 @@ spec:
             envFrom:
               - secretRef:
                   name: searxng-secret
+                  key: searxng-secret
             probes:
               liveness: &probes
                 enabled: true

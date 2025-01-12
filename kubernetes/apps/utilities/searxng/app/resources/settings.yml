@@ -2,6 +2,7 @@
 use_default_settings: true
 
 server:
+  base_url: ${SEARXNG_BASE_URL}
   limiter: true
   image_proxy: true
   method: GET # https://github.com/searxng/searxng/pull/3619
@@ -17,6 +18,9 @@ search:
     - en-US
     - de
     - nl-NL
+
+general:
+  instance_name: SearXNG-${SEARXNG_INSTANCE_NAME}
 
 ui:
   default_theme: simple

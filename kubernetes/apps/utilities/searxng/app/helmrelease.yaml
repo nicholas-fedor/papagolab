@@ -35,8 +35,8 @@ spec:
               LOG_WITHOUT_NEWLINE: true
               LOG_IGNORE_PATH: /
               PROMETHEUS_ENABLED: true
-              BASE_URL: https://searxng.papagolab.com/
-              INSTANCE_NAME: "${CLUSTER_DOMAIN}"
+              SEARXNG_BASE_URL: https://searxng.papagolab.com/
+              SEARXNG_INSTANCE_NAME: "${CLUSTER_DOMAIN}"
             probes:
               liveness: &probes
                 enabled: true

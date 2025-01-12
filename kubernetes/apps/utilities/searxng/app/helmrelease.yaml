@@ -37,6 +37,9 @@ spec:
               PROMETHEUS_ENABLED: true
               SEARXNG_BASE_URL: https://searxng.papagolab.com/
               SEARXNG_INSTANCE_NAME: "${CLUSTER_DOMAIN}"
+            envFrom:
+              - secretRef:
+                  name: searxng-secret
             probes:
               liveness: &probes
                 enabled: true

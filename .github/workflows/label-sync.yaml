@@ -2,6 +2,10 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: "Label Sync"
 
+permissions:
+  contents: read
+  issues: write
+
 on:
   workflow_dispatch:
   push:

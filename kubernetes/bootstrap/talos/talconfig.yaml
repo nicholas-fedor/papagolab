@@ -28,7 +28,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
-    talosImageURL: factory.talos.dev/installer-secureboot/e3fab82b561b5e559cdf1c0b1e5950c0e52700b9208a2cfaa5b18454796f3a7e
+    talosImageURL: factory.talos.dev/installer-secureboot/cc493cae44e0bdbbefb5b5d1fb22ff724134cd7c6bb65172fa84e181568be45d
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -47,7 +47,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
-    talosImageURL: factory.talos.dev/installer-secureboot/e3fab82b561b5e559cdf1c0b1e5950c0e52700b9208a2cfaa5b18454796f3a7e
+    talosImageURL: factory.talos.dev/installer-secureboot/cc493cae44e0bdbbefb5b5d1fb22ff724134cd7c6bb65172fa84e181568be45d
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -66,7 +66,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: true
-    talosImageURL: factory.talos.dev/installer-secureboot/e3fab82b561b5e559cdf1c0b1e5950c0e52700b9208a2cfaa5b18454796f3a7e
+    talosImageURL: factory.talos.dev/installer-secureboot/cc493cae44e0bdbbefb5b5d1fb22ff724134cd7c6bb65172fa84e181568be45d
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
@@ -105,6 +105,7 @@ patches:
   - "@./patches/global/kubelet.yaml"
   - "@./patches/global/ntp.yaml"
   - "@./patches/global/openebs-local.yaml"
+  - "@./patches/global/longhorn-ssd.yaml"
   - "@./patches/global/sysctl.yaml"
 
 # Controller patches
@@ -114,4 +115,3 @@ controlPlane:
     - "@./patches/controller/cluster.yaml"
     - "@./patches/controller/disable-admission-controller.yaml"
     - "@./patches/controller/etcd.yaml"
-

@@ -24,8 +24,7 @@ spec:
       retries: 3
   values:
     defaultSettings:
-      defaultDataPath: /var/mnt/ssd
-    persistence:
+      defaultDataPath: /var/lib/longhorn
       defaultClassReplicaCount: 3
     ingress:
       enabled: true

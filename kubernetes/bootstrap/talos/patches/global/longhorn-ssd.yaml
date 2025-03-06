@@ -2,11 +2,11 @@ machine:
   disks:
     - device: /dev/sdb
       partitions:
-        - mountpoint: /var/mnt/ssd
+        - mountpoint: /var/lib/longhorn
   kubelet:
     extraMounts:
-      - destination: /var/mnt/ssd
-        source: /var/mnt/ssd
+      - destination: /var/lib/longhorn
+        source: /var/lib/longhorn
         type: bind
         options:
           - bind

@@ -42,9 +42,6 @@ spec:
                   secretKeyRef:
                     name: homepage-secrets
                     key: OPENWEATHERMAP_LONGITUDE
-            volumeMounts:
-              - name: config
-                mountPath: /app/config
             probes:
               liveness: &probes
                 enabled: true
@@ -137,6 +134,7 @@ spec:
                   port: http
     persistence:
       config:
+        enabled: true
         type: configMap
         name: homepage-configmap
         globalMounts:
@@ -161,4 +159,6 @@ spec:
       logs:
         enabled: true
         type: emptyDir
-        mountPath: /app/config/logs
+        globalMounts:
+          - path: /app/config/logs
+          - path: /tmp

@@ -75,6 +75,7 @@ spec:
     serviceAccount:
       create: true
       name: homepage
+    defaultPodOptions:
       automountServiceAccountToken: true
     # RBAC for service discovery
     additionalControllers:

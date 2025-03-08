@@ -63,12 +63,12 @@ spec:
               TZ: ${TIMEZONE}
               TLS_CERTIFICATE_PATH: /opt/adguardhome/certs/tls.crt
               TLS_PRIVATE_KEY_PATH: /opt/adguardhome/certs/tls.key
-            probes:
-              liveness: &probes
-                enabled: true
-                custom: false
-                type: TCP
-              readiness: *probes
+            # probes:
+            #   liveness: &probes
+            #     enabled: true
+            #     custom: false
+            #     type: TCP
+            #   readiness: *probes
             resources:
               requests:
                 cpu: 10m

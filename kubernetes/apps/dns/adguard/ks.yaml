@@ -5,11 +5,11 @@ metadata:
   name: &app adguard
   namespace: flux-system
 spec:
-  targetNamespace: network
+  targetNamespace: dns
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/network/adguard/app
+  path: ./kubernetes/apps/dns/adguard/app
   prune: true
   sourceRef:
     kind: GitRepository

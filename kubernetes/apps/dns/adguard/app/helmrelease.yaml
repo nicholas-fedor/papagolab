@@ -66,12 +66,12 @@ spec:
             envFrom:
               - secretRef:
                   name: adguard-auth
-            probes:
-              liveness: &probes
-                enabled: true
-                custom: false
-                type: TCP
-              readiness: *probes
+            # probes:
+            #   liveness: &probes
+            #     enabled: true
+            #     custom: false
+            #     type: TCP
+            #   readiness: *probes
             resources:
               requests:
                 cpu: 10m

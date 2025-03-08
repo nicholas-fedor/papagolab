@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
   annotations:
     meta.helm.sh/release-name: adguard
-    meta.helm.sh/release-namespace: network
+    meta.helm.sh/release-namespace: dns
 rules:
   - apiGroups: [""]
     resources: ["configmaps"] # ["configmaps", "secrets"]
@@ -21,7 +21,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
   annotations:
     meta.helm.sh/release-name: adguard
-    meta.helm.sh/release-namespace: network
+    meta.helm.sh/release-namespace: dns
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -29,4 +29,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: adguard
-    namespace: network
+    namespace: dns

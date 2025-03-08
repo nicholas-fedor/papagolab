@@ -5,8 +5,8 @@ http:
   address: 0.0.0.0:80
   session_ttl: 720h
 users:
-  - name: "{{ .Env.ADGUARD_USERNAME }}"
-    password: "{{ .Env.ADGUARD_PASSWORD }}"
+  - name: "${ADGUARD_USERNAME}"
+    password: "${ADGUARD_PASSWORD}"
 auth_attempts: 5
 block_auth_min: 15
 http_proxy: ""

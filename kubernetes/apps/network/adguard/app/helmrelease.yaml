@@ -133,11 +133,11 @@ spec:
             port: &dot-port 853
             protocol: TCP
             targetPort: *dot-port
-          # doh:
-          #   enabled: true
-          #   port: *https-port
-          #   protocol: UDP
-          #   targetPort: *https-port
+          doh:
+            enabled: true
+            port: 443
+            protocol: UDP
+            targetPort: 443
           doq:
             enabled: true
             port: &doq-port 853

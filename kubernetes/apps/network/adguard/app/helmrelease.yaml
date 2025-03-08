@@ -125,22 +125,17 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/hostname: "internal.${SECRET_DOMAIN}"
           gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: AdGuard
           gethomepage.dev/description: "DNS Ad-Blocking"
           gethomepage.dev/group: Network
           gethomepage.dev/icon: adguard-home.svg
-          gethomepage.dev/name: AdGuard
-          gethomepage.dev/widget.type: *app
-          gethomepage.dev/widget.url: http://${APP}.network.svc.cluster.local:80
         hosts:
-          - host: &host ${APP}}.${SECRET_DOMAIN}
+          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
                   identifier: app
                   port: http
-        tls:
-          - hosts:
-              - *host
 
     # Required for the config sync init container
     serviceAccount:

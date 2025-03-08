@@ -146,26 +146,30 @@ spec:
             port: &setup-port 3000
             protocol: TCP
             targetPort: *setup-port
-    ingress:
-      app:
-        enabled: false
     # ingress:
     #   app:
-    #     className: internal
-    #     annotations:
-    #       external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
-    #       gethomepage.dev/enabled: "true"
-    #       gethomepage.dev/name: AdGuard
-    #       gethomepage.dev/description: "DNS Ad-Blocking"
-    #       gethomepage.dev/group: DNS
-    #       gethomepage.dev/icon: adguard-home.svg
-    #     hosts:
-    #       - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
-    #         paths:
-    #           - path: /
-    #             service:
-    #               identifier: app
-    #               port: http
+    #     enabled: false
+    ingress:
+      app:
+        enabled: true
+        className: internal
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: AdGuard
+          gethomepage.dev/description: "DNS Ad-Blocking"
+          gethomepage.dev/group: DNS
+          gethomepage.dev/icon: adguard-home.svg
+        hosts:
+          - host: "adguard.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  name: adguard
+                  port: 443
 
     # Required for the config sync init container
     serviceAccount:

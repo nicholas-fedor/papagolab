@@ -45,8 +45,8 @@ data:
 
     - openweathermap:
         label: Phoenix
-        latitude: "{{OPENWEATHERMAP_LATITUDE}}"
-        longitude: "{{OPENWEATHERMAP_LONGITUDE}}"
+        latitude: "{{HOMEPAGE_VAR_OPENWEATHERMAP_LATITUDE}}"
+        longitude: "{{HOMEPAGE_VAR_OPENWEATHERMAP_LONGITUDE}}"
         units: imperial
         provider: openweathermap
         cache: 5

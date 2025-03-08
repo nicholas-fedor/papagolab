@@ -152,7 +152,7 @@ spec:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: AdGuard
           gethomepage.dev/description: "DNS Ad-Blocking"
-          gethomepage.dev/group: Network
+          gethomepage.dev/group: DNS
           gethomepage.dev/icon: adguard-home.svg
         hosts:
           - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"

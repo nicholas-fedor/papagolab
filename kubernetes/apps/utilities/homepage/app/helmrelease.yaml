@@ -86,10 +86,10 @@ spec:
           rules:
             - apiGroups: [""]
               resources: ["namespaces", "pods", "nodes"]
-              verbs: ["get", "list"]
+              verbs: ["get", "list", "watch"]
             - apiGroups: ["extensions", "networking.k8s.io"]
               resources: ["ingresses"]
-              verbs: ["get", "list"]
+              verbs: ["get", "list", "watch"]
             - apiGroups: ["metrics.k8s.io"]
               resources: ["nodes", "pods"]
               verbs: ["get", "list"]
@@ -141,6 +141,12 @@ spec:
         globalMounts:
           - path: /app/config/bookmarks.yaml
             subPath: bookmarks.yaml
+            readOnly: true
+          - path: /app/config/custom.css
+            subPath: custom.css
+            readOnly: true
+          - path: /app/config/custom.js
+            subPath: custom.js
             readOnly: true
           - path: /app/config/docker.yaml
             subPath: docker.yaml

@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ./configmap.yaml
   - ./helmrelease.yaml
-  - ./rabc.yaml
+  - ./rbac.yaml
   - ./secret.sops.yaml
 generatorOptions:
   disableNameSuffixHash: true

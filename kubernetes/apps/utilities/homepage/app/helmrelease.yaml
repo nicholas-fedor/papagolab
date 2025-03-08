@@ -32,9 +32,23 @@ spec:
               tag: v0.10.9
             env:
               PORT: &port 3000
-            envFrom:
-              - secretRef:
-                  name: homepage-secrets
+              HOMEPAGE_VAR_HOMEPAGE_TITLE: "PapagoLab Homepage"
+              HOMEPAGE_VAR_HOMEPAGE_TOKEN:
+                valueFrom:
+                  secretKeyRef:
+                    name: homepage-secrets
+                    key: OPENWEATHERMAP_TOKEN
+              HOMEPAGE_VAR_OPENWEATHERMAP_LATITUDE:
+                valueFrom:
+                  secretKeyRef:
+                    name: homepage-secrets
+                    key: OPENWEATHERMAP_LATITUDE
+              HOMEPAGE_VAR_OPENWEATHERMAP_LONGITUDE:
+                valueFrom:
+                  secretKeyRef:
+                    name: homepage-secrets
+                    key: OPENWEATHERMAP_LONGITUDE
+              HOMEPAGE_VAR_SEARXNG_URL: "https://searxng.papagolab.com"
             probes:
               liveness: &probes
                 enabled: true

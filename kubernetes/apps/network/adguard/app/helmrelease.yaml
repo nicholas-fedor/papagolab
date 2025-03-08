@@ -119,21 +119,21 @@ spec:
             port: &dns-port 53
             protocol: TCP
             targetPort: *dns-port
-          # dns-udp:
-          #   enabled: true
-          #   port: *dns-port
-          #   protocol: UDP
-          #   targetPort: *dns-port
+          dns-udp:
+            enabled: true
+            port: *dns-port
+            protocol: UDP
+            targetPort: *dns-port
           dot:
             enabled: true
             port: &dot-port 853
             protocol: TCP
             targetPort: *dot-port
-          doh:
-            enabled: true
-            port: *https-port
-            protocol: UDP
-            targetPort: *https-port
+          # doh:
+          #   enabled: true
+          #   port: *https-port
+          #   protocol: UDP
+          #   targetPort: *https-port
           doq:
             enabled: true
             port: &doq-port 853

@@ -14,7 +14,7 @@ data:
     mode: cluster
   services.yaml: ""
   settings.yaml: |
-    title: "${HOMEPAGE_VAR_HOMEPAGE_TITLE}"
+    title: "${HOMEPAGE_FILE_HOMEPAGE_TITLE}"
 
     theme: dark
     color: slate
@@ -24,7 +24,7 @@ data:
     headerStyle: clean
 
     providers:
-      openweathermap: "${HOMEPAGE_VAR_OPENWEATHERMAP_TOKEN}"
+      openweathermap: "${OPENWEATHERMAP_TOKEN}"
 
     fiveColumns: true
     useEqualHeights: true
@@ -45,8 +45,8 @@ data:
 
     - openweathermap:
         label: Phoenix
-        latitude: "${HOMEPAGE_VAR_OPENWEATHERMAP_LATITUDE}"
-        longitude: "${HOMEPAGE_VAR_OPENWEATHERMAP_LONGITUDE}"
+        latitude: "${OPENWEATHERMAP_LATITUDE}"
+        longitude: "${OPENWEATHERMAP_LONGITUDE}"
         units: imperial
         provider: openweathermap
         cache: 5
@@ -68,5 +68,5 @@ data:
 
     - search:
         provider: custom
-        url: "https://${HOMEPAGE_VAR_SEARXNG_URL}/search?q="
+        url: "https://searxng.papagolab.com/search?q="
         target: _blank

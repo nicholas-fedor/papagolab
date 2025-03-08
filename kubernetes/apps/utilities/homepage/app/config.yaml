@@ -68,5 +68,5 @@ data:
 
     - search:
         provider: custom
-        url: "${HOMEPAGE_VAR_SEARXNG_URL}/search?q="
+        url: "https://${HOMEPAGE_VAR_SEARXNG_URL}/search?q="
         target: _blank

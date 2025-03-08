@@ -25,7 +25,7 @@ spec:
     keepHistory: false
   values:
     controllers:
-      ${APP}:
+      adguard:
         pod:
           dnsConfig:
             options:

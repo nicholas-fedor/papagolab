@@ -98,9 +98,11 @@ spec:
             scrapeTimeout: 10s
     service:
       app:
+        enabled: true
         controller: *app
-        # type: LoadBalancer
-        # externalTrafficPolicy: Local
+        type: LoadBalancer
+        internalTrafficPolicy: Local
+        externalTrafficPolicy: Local
         annotations:
           lbipam.cilium.io/ips: "192.168.70.40"
         ports:
@@ -146,21 +148,24 @@ spec:
             targetPort: *setup-port
     ingress:
       app:
-        className: internal
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: AdGuard
-          gethomepage.dev/description: "DNS Ad-Blocking"
-          gethomepage.dev/group: DNS
-          gethomepage.dev/icon: adguard-home.svg
-        hosts:
-          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+        enabled: false
+    # ingress:
+    #   app:
+    #     className: internal
+    #     annotations:
+    #       external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
+    #       gethomepage.dev/enabled: "true"
+    #       gethomepage.dev/name: AdGuard
+    #       gethomepage.dev/description: "DNS Ad-Blocking"
+    #       gethomepage.dev/group: DNS
+    #       gethomepage.dev/icon: adguard-home.svg
+    #     hosts:
+    #       - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+    #         paths:
+    #           - path: /
+    #             service:
+    #               identifier: app
+    #               port: http
 
     # Required for the config sync init container
     serviceAccount:

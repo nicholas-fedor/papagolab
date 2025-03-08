@@ -1,0 +1,725 @@
+http:
+  pprof:
+    port: 6060
+    enabled: false
+  address: 0.0.0.0:80
+  session_ttl: 720h
+users: []
+auth_attempts: 5
+block_auth_min: 15
+http_proxy: ""
+language: ""
+theme: auto
+dns:
+  bind_hosts:
+    - 0.0.0.0
+  port: 53
+  anonymize_client_ip: false
+  ratelimit: 20
+  ratelimit_subnet_len_ipv4: 24
+  ratelimit_subnet_len_ipv6: 56
+  ratelimit_whitelist: []
+  refuse_any: true
+  upstream_dns:
+    - 'https://peplc9l60h.cloudflare-gateway.com/dns-query'
+  upstream_dns_file: ""
+  bootstrap_dns:
+    - 172.64.36.1
+    - 172.64.36.2
+    - 2a06:98c1:54::3:a8f5
+  fallback_dns: []
+  upstream_mode: load_balance
+  fastest_timeout: 1s
+  allowed_clients: []
+  disallowed_clients: []
+  blocked_hosts:
+    - version.bind
+    - id.server
+    - hostname.bind
+  trusted_proxies:
+    - 127.0.0.0/8
+    - ::1/128
+  cache_size: 4194304
+  cache_ttl_min: 0
+  cache_ttl_max: 0
+  cache_optimistic: true
+  bogus_nxdomain: []
+  aaaa_disabled: false
+  enable_dnssec: true
+  edns_client_subnet:
+    custom_ip: ""
+    enabled: false
+    use_custom: false
+  max_goroutines: 300
+  handle_ddr: true
+  ipset: []
+  ipset_file: ""
+  bootstrap_prefer_ipv6: false
+  upstream_timeout: 10s
+  private_networks: []
+  use_private_ptr_resolvers: true
+  local_ptr_upstreams:
+    - 192.168.70.1
+  use_dns64: false
+  dns64_prefixes: []
+  serve_http3: false
+  use_http3_upstreams: false
+  serve_plain_dns: true
+  hostsfile_enabled: true
+tls:
+  enabled: true
+  server_name: adguard.papagolab.com
+  force_https: true
+  port_https: 443
+  port_dns_over_tls: 853
+  port_dns_over_quic: 853
+  port_dnscrypt: 0
+  dnscrypt_config_file: ""
+  allow_unencrypted_doh: false
+  certificate_chain: ""
+  private_key: ""
+  certificate_path: ""
+  private_key_path: ""
+  strict_sni_check: false
+querylog:
+  dir_path: ""
+  ignored: []
+  interval: 2160h
+  size_memory: 1000
+  enabled: true
+  file_enabled: true
+statistics:
+  dir_path: ""
+  ignored: []
+  interval: 2160h
+  enabled: true
+filters:
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
+    name: AdGuard DNS filter
+    id: 1
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt
+    name: AdAway Default Blocklist
+    id: 2
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_24.txt
+    name: 1Hosts (Lite)
+    id: 1730062447
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_38.txt
+    name: 1Hosts (mini)
+    id: 1730062448
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_59.txt
+    name: AdGuard DNS Popup Hosts filter
+    id: 1730062449
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_53.txt
+    name: AWAvenue Ads Rule
+    id: 1730062450
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_4.txt
+    name: Dan Pollock's List
+    id: 1730062451
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_48.txt
+    name: HaGeZi's Pro Blocklist
+    id: 1730062452
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_34.txt
+    name: HaGeZi's Normal Blocklist
+    id: 1730062453
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_51.txt
+    name: HaGeZi's Pro++ Blocklist
+    id: 1730062454
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_49.txt
+    name: HaGeZi's Ultimate Blocklist
+    id: 1730062455
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_5.txt
+    name: OISD Blocklist Small
+    id: 1730062456
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt
+    name: OISD Blocklist Big
+    id: 1730062457
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_3.txt
+    name: Peter Lowe's Blocklist
+    id: 1730062458
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_33.txt
+    name: Steven Black's List
+    id: 1730062459
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_39.txt
+    name: Dandelion Sprout's Anti Push Notifications
+    id: 1730062460
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_6.txt
+    name: Dandelion Sprout's Game Console Adblock List
+    id: 1730062461
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_45.txt
+    name: HaGeZi's Allowlist Referral
+    id: 1730062462
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_47.txt
+    name: HaGeZi's Gambling Blocklist
+    id: 1730062463
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_60.txt
+    name: HaGeZi's Xiaomi Tracker Blocklist
+    id: 1730062464
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_7.txt
+    name: Perflyst and Dandelion Sprout's Smart-TV Blocklist
+    id: 1730062465
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_57.txt
+    name: ShadowWhisperer's Dating List
+    id: 1730062466
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_23.txt
+    name: WindowsSpyBlocker - Hosts spy rules
+    id: 1730062467
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt
+    name: 'CHN: AdRules DNS List'
+    id: 1730062468
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_21.txt
+    name: 'CHN: anti-AD'
+    id: 1730062469
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_35.txt
+    name: 'HUN: Hufilter'
+    id: 1730062470
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_22.txt
+    name: 'IDN: ABPindo'
+    id: 1730062471
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_19.txt
+    name: 'IRN: PersianBlocker list'
+    id: 1730062472
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_43.txt
+    name: 'ISR: EasyList Hebrew'
+    id: 1730062473
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_25.txt
+    name: 'KOR: List-KR DNS'
+    id: 1730062474
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_15.txt
+    name: 'KOR: YousList'
+    id: 1730062475
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_36.txt
+    name: 'LIT: EasyList Lithuania'
+    id: 1730062476
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_20.txt
+    name: 'MKD: Macedonian Pi-hole Blocklist'
+    id: 1730062477
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_13.txt
+    name: 'NOR: Dandelion Sprouts nordiske filtre'
+    id: 1730062478
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_41.txt
+    name: 'POL: CERT Polska List of malicious domains'
+    id: 1730062479
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_14.txt
+    name: 'POL: Polish filters for Pi-hole'
+    id: 1730062480
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_17.txt
+    name: 'SWE: Frellwit''s Swedish Hosts File'
+    id: 1730062481
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_26.txt
+    name: 'TUR: turk-adlist'
+    id: 1730062482
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_40.txt
+    name: 'TUR: Turkish Ad Hosts'
+    id: 1730062483
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_30.txt
+    name: Phishing URL Blocklist (PhishTank and OpenPhish)
+    id: 1730062484
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_12.txt
+    name: Dandelion Sprout's Anti-Malware List
+    id: 1730062485
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_55.txt
+    name: HaGeZi's Badware Hoster Blocklist
+    id: 1730062486
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_54.txt
+    name: HaGeZi's DynDNS Blocklist
+    id: 1730062487
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_56.txt
+    name: HaGeZi's The World's Most Abused TLDs
+    id: 1730062488
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_18.txt
+    name: Phishing Army
+    id: 1730062489
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_44.txt
+    name: HaGeZi's Threat Intelligence Feeds
+    id: 1730062490
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt
+    name: NoCoin Filter List
+    id: 1730062491
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_10.txt
+    name: Scam Blocklist by DurableNapkin
+    id: 1730062492
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_42.txt
+    name: ShadowWhisperer's Malware List
+    id: 1730062493
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_31.txt
+    name: Stalkerware Indicators List
+    id: 1730062494
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt
+    name: The Big List of Hacked Malware Web Sites
+    id: 1730062495
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt
+    name: uBlock₀ filters – Badware risks
+    id: 1730062496
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_11.txt
+    name: Malicious URL Blocklist (URLHaus)
+    id: 1730062497
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_61.txt
+    name: HaGeZi's Samsung Tracker Blocklist
+    id: 1739049607
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_63.txt
+    name: HaGeZi's Windows/Office Tracker Blocklist
+    id: 1739049608
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_62.txt
+    name: Ukrainian Security Filter
+    id: 1739049609
+whitelist_filters: []
+user_rules:
+  - '@@||browser.events.data.microsoft.com^$important'
+  - '@@||vlscppe.microsoft.com^$important'
+  - '@@||fpt.microsoft.com^$important'
+  - '@@||dc.services.visualstudio.com^$important'
+  - '@@||api.bookinfo.club^$important'
+  - '@@||www.mkvtoolnix.download^$important'
+  - '@@||mkvtoolnix.download^$important'
+  - '@@||nexus-websocket-a.intercom.io^$client=''192.168.20.2'''
+  - ""
+dhcp:
+  enabled: false
+  interface_name: ""
+  local_domain_name: lan
+  dhcpv4:
+    gateway_ip: ""
+    subnet_mask: ""
+    range_start: ""
+    range_end: ""
+    lease_duration: 86400
+    icmp_timeout_msec: 1000
+    options: []
+  dhcpv6:
+    range_start: ""
+    lease_duration: 86400
+    ra_slaac_only: false
+    ra_allow_slaac: false
+filtering:
+  blocking_ipv4: ""
+  blocking_ipv6: ""
+  blocked_services:
+    schedule:
+      time_zone: Local
+    ids:
+      - 4chan
+      - 500px
+      - 9gag
+      - activision_blizzard
+      - aliexpress
+      - amino
+      - apple_streaming
+      - battle_net
+      - betano
+      - betfair
+      - betway
+      - bigo_live
+      - bilibili
+      - blaze
+      - blizzard_entertainment
+      - bluesky
+      - box
+      - canais_globo
+      - claro
+      - clubhouse
+      - coolapk
+      - crunchyroll
+      - dailymotion
+      - deezer
+      - directvgo
+      - discord
+      - discoveryplus
+      - disneyplus
+      - douban
+      - dropbox
+      - electronic_arts
+      - epic_games
+      - espn
+      - facebook
+      - fifa
+      - flickr
+      - globoplay
+      - gog
+      - hbomax
+      - hulu
+      - icloud_private_relay
+      - iheartradio
+      - instagram
+      - iqiyi
+      - kakaotalk
+      - kik
+      - kook
+      - lazada
+      - leagueoflegends
+      - line
+      - lionsgateplus
+      - looke
+      - mail_ru
+      - mastodon
+      - mercado_libre
+      - minecraft
+      - nebula
+      - netflix
+      - nintendo
+      - ok
+      - olvid
+      - onlyfans
+      - origin
+      - paramountplus
+      - peacock_tv
+      - pinterest
+      - playstation
+      - plenty_of_fish
+      - pluto_tv
+      - privacy
+      - qq
+      - rakuten_viki
+      - riot_games
+      - roblox
+      - rockstar_games
+      - shein
+      - shopee
+      - signal
+      - skype
+      - slack
+      - snapchat
+      - soundcloud
+      - telegram
+      - temu
+      - tidal
+      - tiktok
+      - tinder
+      - twitch
+      - valorant
+      - viber
+      - vimeo
+      - vk
+      - voot
+      - wechat
+      - weibo
+      - whatsapp
+      - wizz
+      - xboxlive
+      - xiaohongshu
+      - yy
+      - zhihu
+      - samsung_tv_plus
+  protection_disabled_until: null
+  safe_search:
+    enabled: false
+    bing: true
+    duckduckgo: true
+    ecosia: true
+    google: true
+    pixabay: true
+    yandex: true
+    youtube: true
+  blocking_mode: default
+  parental_block_host: family-block.dns.adguard.com
+  safebrowsing_block_host: standard-block.dns.adguard.com
+  rewrites:
+    - domain: hdhomerun.papago.casa
+      answer: 192.168.30.9
+    - domain: synology.papago.casa
+      answer: 192.168.20.4
+    - domain: truenas.papago.casa
+      answer: 192.168.30.3
+    - domain: plex.papago.casa
+      answer: 192.168.30.4
+    - domain: x399.papago.casa
+      answer: 192.168.30.2
+    - domain: adguard.papago.casa
+      answer: 192.168.100.2
+    - domain: apt-cacher.papago.casa
+      answer: 192.168.40.12
+    - domain: apt-mirror.papago.casa
+      answer: 192.168.40.11
+    - domain: x99.papago.casa
+      answer: 192.168.40.3
+    - domain: unifi.papago.casa
+      answer: 192.168.1.1
+    - domain: radarr.papago.casa
+      answer: 192.168.30.5
+    - domain: sonarr.papago.casa
+      answer: 192.168.30.6
+    - domain: overseerr.papago.casa
+      answer: 192.168.30.7
+    - domain: homarr.papago.casa
+      answer: 192.168.40.13
+    - domain: tautulli.papago.casa
+      answer: 192.168.30.8
+    - domain: prowlarr.papago.casa
+      answer: 192.168.30.10
+    - domain: syncthing.papago.casa
+      answer: 192.168.30.11
+    - domain: lidarr.papago.casa
+      answer: 192.168.30.12
+    - domain: tube-archivist.papago.casa
+      answer: 192.168.30.13
+    - domain: wpad.papago.casa
+      answer: 127.0.0.1
+    - domain: whisparr.papago.casa
+      answer: 192.168.30.14
+    - domain: searxng.papago.casa
+      answer: 192.168.40.14
+    - domain: netbox.papago.casa
+      answer: 192.168.40.15
+    - domain: readarr.papago.casa
+      answer: 192.168.30.15
+    - domain: calibre-web.papago.casa
+      answer: 192.168.30.16
+    - domain: navidrome.papago.casa
+      answer: 192.168.30.17
+    - domain: stash.papago.casa
+      answer: 192.168.30.18
+    - domain: cyberchef.papago.casa
+      answer: 192.168.40.17
+    - domain: x99-talos-controller01.papago.casa
+      answer: 192.168.70.100
+    - domain: x99-talos-worker01.papago.casa
+      answer: 192.168.70.101
+    - domain: time.papago.casa
+      answer: 192.168.20.20
+    - domain: semaphore.papago.casa
+      answer: 192.168.40.18
+    - domain: gitea.papago.casa
+      answer: 192.168.40.19
+    - domain: uptimekuma.papago.casa
+      answer: 192.168.40.20
+    - domain: it-tools.papago.casa
+      answer: 192.168.40.21
+    - domain: speedtest-tracker.papago.casa
+      answer: 192.168.40.22
+    - domain: pve1.papagolab.com
+      answer: 192.168.70.11
+    - domain: pve2.papagolab.com
+      answer: 192.168.70.12
+    - domain: pve3.papagolab.com
+      answer: 192.168.70.13
+    - domain: talos-mgr.papagolab.com
+      answer: 192.168.70.14
+    - domain: papagolab-ctrl-01.papagolab.com
+      answer: 192.168.70.31
+    - domain: papagolab-ctrl-02.papagolab.com
+      answer: 192.168.70.32
+    - domain: papagolab-ctrl-03.papagolab.com
+      answer: 192.168.70.33
+    - domain: pdm.papago.casa
+      answer: 192.168.40.28
+    - domain: securityonion
+      answer: 192.168.40.29
+    - domain: proxmox01.papagolabs.com
+      answer: 192.168.20.31
+    - domain: proxmox02.papagolabs.com
+      answer: 192.168.20.32
+    - domain: proxmox03.papagolabs.com
+      answer: 192.168.20.33
+    - domain: debian-desktop.papagolabs.com
+      answer: 192.168.20.40
+    - domain: traefik.papagolabs.com
+      answer: 192.168.20.50
+    - domain: proxmox.papagolabs.com
+      answer: 192.168.20.50
+    - domain: gitea.papagolabs.com
+      answer: 192.168.20.61
+    - domain: '*.gitea.papagolabs.com'
+      answer: 192.168.20.61
+    - domain: librenms.papago.casa
+      answer: 192.168.40.30
+    - domain: '*.librenms.papago.casa'
+      answer: 192.168.40.30
+    - domain: '*.tube-archivist.papago.casa'
+      answer: 192.168.30.13
+    - domain: excalidraw.papago.casa
+      answer: 192.168.40.32
+    - domain: '*.excalidraw.papago.casa'
+      answer: 192.168.40.32
+    - domain: truecommand.papago.casa
+      answer: 192.168.40.33
+    - domain: '*.truecommand.papago.casa'
+      answer: 192.168.40.33
+    - domain: gitlab.papago.casa
+      answer: 192.168.40.34
+    - domain: '*.gitlab.papago.casa'
+      answer: 192.168.40.34
+    - domain: authentik.papago.casa
+      answer: 192.168.40.35
+    - domain: '*.authentik.papago.casa'
+      answer: 192.168.40.35
+    - domain: plex-x99.papago.casa
+      answer: 192.168.40.36
+    - domain: '*.plex-x99.papago.casa'
+      answer: 192.168.40.36
+    - domain: docker01.papagolabs.com
+      answer: 192.168.20.71
+    - domain: docker02.papagolabs.com
+      answer: 192.168.20.72
+    - domain: docker03.papagolabs.com
+      answer: 192.168.20.73
+    - domain: dockerstorage.papagolabs.com
+      answer: 192.168.20.74
+    - domain: docker.papagolabs.com
+      answer: 192.168.20.70
+    - domain: '*.docker.papagolabs.com'
+      answer: 192.168.20.70
+    - domain: '*.it-tools.papago.casa'
+      answer: 192.168.40.21
+    - domain: '*.cyberchef.papago.casa'
+      answer: 192.168.40.17
+    - domain: '*.semaphore.papago.casa'
+      answer: 192.168.40.18
+    - domain: '*.radarr.papago.casa'
+      answer: 192.168.30.5
+    - domain: '*.sonarr.papago.casa'
+      answer: 192.168.30.6
+    - domain: '*.lidarr.papago.casa'
+      answer: 192.168.30.12
+    - domain: '*.syncthing.papago.casa'
+      answer: 192.168.30.11
+    - domain: '*.navidrome.papago.casa'
+      answer: 192.168.30.17
+    - domain: filezilla.papago.casa
+      answer: 192.168.30.19
+    - domain: '*.filezilla.papago.casa'
+      answer: 192.168.30.19
+    - domain: metube.papago.casa
+      answer: 192.168.30.20
+    - domain: '*.metube.papago.casa'
+      answer: 192.168.30.20
+    - domain: '*.readarr.papago.casa'
+      answer: 192.168.30.15
+    - domain: komodo.papago.casa
+      answer: 192.168.40.37
+    - domain: '*.komodo.papago.casa'
+      answer: 192.168.40.37
+    - domain: '*.homarr.papago.casa'
+      answer: 192.168.40.13
+    - domain: proxmox04.papagolabs.com
+      answer: 192.168.20.34
+    - domain: proxmox05.papagolabs.com
+      answer: 192.168.20.35
+    - domain: '*.gitlab-pages.papago.casa'
+      answer: 192.168.40.34
+    - domain: gitlab-pages.papago.casa
+      answer: 192.168.40.34
+    - domain: adguard-backup.papago.casa
+      answer: 192.168.20.11
+    - domain: '*.adguard-backup.papago.casa'
+      answer: 192.168.20.11
+    - domain: homepage.papago.casa
+      answer: 192.168.40.16
+    - domain: '*.homepage.papago.casa'
+      answer: 192.168.40.16
+    - domain: eui64-calculator.papago.casa
+      answer: 192.168.40.24
+    - domain: '*.eui64-calculator.papago.casa'
+      answer: 192.168.40.24
+    - domain: '*.calibre-web.papago.casa'
+      answer: 192.168.30.16
+    - domain: docker01.papagolabs.com
+      answer: 192.168.20.71
+    - domain: gotify.papago.casa
+      answer: 192.168.40.29
+    - domain: '*.gotify.papago.casa'
+      answer: 192.168.40.29
+    - domain: harbor.papago.casa
+      answer: 192.168.40.23
+    - domain: '*.harbor.papago.casa'
+      answer: 192.168.40.23
+    - domain: swarm01.papagolabs.com
+      answer: 192.168.20.81
+    - domain: swarm02.papagolabs.com
+      answer: 192.168.20.82
+    - domain: swarm03.papagolabs.com
+      answer: 192.168.20.83
+    - domain: swarm.papagolabs.com
+      answer: 192.168.20.80
+    - domain: '*.swarm.papagolabs.com'
+      answer: 192.168.20.80
+    - domain: m920q.papago.casa
+      answer: 192.168.80.2
+  safe_fs_patterns:
+    - /opt/AdGuardHome/userfilters/*
+  safebrowsing_cache_size: 1048576
+  safesearch_cache_size: 1048576
+  parental_cache_size: 1048576
+  cache_time: 30
+  filters_update_interval: 24
+  blocked_response_ttl: 10
+  filtering_enabled: true
+  parental_enabled: false
+  safebrowsing_enabled: false
+  protection_enabled: true
+clients:
+  runtime_sources:
+    whois: true
+    arp: true
+    rdns: true
+    dhcp: true
+    hosts: true
+  persistent: []
+log:
+  enabled: true
+  file: ""
+  max_backups: 0
+  max_size: 100
+  max_age: 3
+  compress: false
+  local_time: false
+  verbose: false
+os:
+  group: ""
+  user: ""
+  rlimit_nofile: 0
+schema_version: 29

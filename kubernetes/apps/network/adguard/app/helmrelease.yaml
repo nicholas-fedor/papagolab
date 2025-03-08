@@ -59,10 +59,6 @@ spec:
             image:
               repository: adguard/adguardhome
               tag: v0.107.57@sha256:8ed4b2584d04dfb39e6d8fce1fec0304ed19853e4b41f0ea430dbb3fbf3d799b
-            # securityContext:
-            #   capabilities:
-            #     drop: ["ALL"]
-            #     add: ["NET_BIND_SERVICE"]
             env:
               TZ: ${TIMEZONE}
               TLS_CERTIFICATE_PATH: /opt/adguardhome/certs/tls.crt
@@ -70,12 +66,12 @@ spec:
             envFrom:
               - secretRef:
                   name: adguard-auth
-            # probes:
-            #   liveness: &probes
-            #     enabled: true
-            #     custom: false
-            #     type: TCP
-            #   readiness: *probes
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: false
+                type: TCP
+              readiness: *probes
             resources:
               requests:
                 cpu: 10m
@@ -91,15 +87,15 @@ spec:
               UNIQUE_FILENAMES: false
               METHOD: WATCH
             resources: *configSyncResources
-    # serviceMonitor:
-    #   app:
-    #     serviceName: adguard
-    #     endpoints:
-    #       - port: http
-    #         scheme: http
-    #         path: /
-    #         interval: 1m
-    #         scrapeTimeout: 10s
+    serviceMonitor:
+      app:
+        serviceName: adguard
+        endpoints:
+          - port: http
+            scheme: http
+            path: /
+            interval: 1m
+            scrapeTimeout: 10s
     service:
       app:
         controller: *app

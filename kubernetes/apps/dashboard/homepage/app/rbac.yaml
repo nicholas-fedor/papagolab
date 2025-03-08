@@ -12,11 +12,11 @@ rules:
     verbs: ["get", "list", "watch"]
   # Required to get the pod status in the dashboard
   - apiGroups: [""]
-    resources: ["pods"]
+    resources: ["namespaces", "pods", "nodes"]
     verbs: ["get", "list", "watch"]
   # Required to get the metrics in the dashboard
   - apiGroups: ["metrics.k8s.io"]
-    resources: ["pods"]
+    resources: ["pods", "nodes"]
     verbs: ["get", "list", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1

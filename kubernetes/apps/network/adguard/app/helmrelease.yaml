@@ -58,7 +58,7 @@ spec:
           app:
             image:
               repository: adguard/adguardhome
-              tag: v0.107.57@sha256:8ed4b2584d04dfb39e6d8fce1fec0304ed19853e4b41f0ea430dbb3fbf3d799b
+              tag: v0.107.57@sha256:5c536c1e25f76693ae7ee5e64e8a029893e0f3f1778c8d2a9581383e60cfa9b9
             env:
               TZ: ${TIMEZONE}
               TLS_CERTIFICATE_PATH: /opt/adguardhome/certs/tls.crt

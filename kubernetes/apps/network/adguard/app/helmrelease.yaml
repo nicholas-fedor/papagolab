@@ -109,6 +109,11 @@ spec:
             port: 80
             protocol: TCP
             targetPort: 80
+          https:
+            enabled: true
+            port: &https-port 443
+            protocol: TCP
+            targetPort: *https-port
           dns-tcp:
             enabled: true
             port: &dns-port 53
@@ -119,21 +124,21 @@ spec:
             port: *dns-port
             protocol: UDP
             targetPort: *dns-port
-          dns-tcp-tls:
+          dot:
             enabled: true
-            port: &dns-tls-port 853
+            port: &dot-port 853
             protocol: TCP
-            targetPort: *dns-tls-port
-          # doh:
-          #   enabled: true
-          #   port: &dns-over-https-port 443
-          #   protocol: UDP
-          #   targetPort: *dns-over-https-port
-          quic:
+            targetPort: *dot-port
+          doh:
             enabled: true
-            port: &dns-over-quic-port 853
+            port: *https-port
             protocol: UDP
-            targetPort: *dns-over-quic-port
+            targetPort: *https-port
+          doq:
+            enabled: true
+            port: &doq-port 853
+            protocol: UDP
+            targetPort: *doq-port
           setup:
             enabled: true
             port: &setup-port 3000
@@ -141,9 +146,7 @@ spec:
             targetPort: *setup-port
     ingress:
       app:
-        className: internal
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: "internal.${SECRET_DOMAIN}"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: AdGuard
           gethomepage.dev/description: "DNS Ad-Blocking"

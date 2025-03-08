@@ -64,7 +64,7 @@ dns:
     - 192.168.70.1
   use_dns64: false
   dns64_prefixes: []
-  serve_http3: false
+  serve_http3: true
   use_http3_upstreams: false
   serve_plain_dns: true
   hostsfile_enabled: true

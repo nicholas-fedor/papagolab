@@ -127,11 +127,11 @@ spec:
           doh:
             enabled: true
             port: &dns-over-https-port 443
-            protocol: TCP
+            protocol: UDP
             targetPort: *dns-over-https-port
           quic:
             enabled: true
-            port: &dns-over-quic-port 443
+            port: &dns-over-quic-port 853
             protocol: UDP
             targetPort: *dns-over-quic-port
           setup:

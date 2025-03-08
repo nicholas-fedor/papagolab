@@ -9,9 +9,6 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  dependsOn:
-    - name: openebs
-    - name: unbound
   path: ./kubernetes/apps/network/adguard/app
   prune: true
   sourceRef:

@@ -32,21 +32,9 @@ spec:
               tag: v0.10.9
             env:
               PORT: &port 3000
-              HOMEPAGE_VAR_OPENWEATHERMAP_LATITUDE:
-                valueFrom:
-                  secretKeyRef:
-                    name: homepage-secrets
-                    key: OPENWEATHERMAP_LATITUDE
-              HOMEPAGE_VAR_OPENWEATHERMAP_LONGITUDE:
-                valueFrom:
-                  secretKeyRef:
-                    name: homepage-secrets
-                    key: OPENWEATHERMAP_LONGITUDE
-              HOMEPAGE_VAR_OPENWEATHERMAP_TOKEN:
-                valueFrom:
-                  secretKeyRef:
-                    name: homepage-secrets
-                    key: OPENWEATHERMAP_TOKEN
+            envFrom:
+              - secretRef:
+                name: homepage-secrets
             probes:
               liveness: &probes
                 enabled: true

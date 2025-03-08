@@ -24,7 +24,7 @@ data:
     headerStyle: clean
 
     providers:
-      openweathermap: "{{HOMEPAGE_VAR_OPENWEATHERMAP_TOKEN}"
+      openweathermap: "{{HOMEPAGE_VAR_OPENWEATHERMAP_TOKEN}}"
 
     fiveColumns: true
     useEqualHeights: true

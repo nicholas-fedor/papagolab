@@ -32,7 +32,6 @@ spec:
               tag: v0.10.9
             env:
               PORT: &port 3000
-              HOMEPAGE_VAR_HOMEPAGE_TITLE: "PapagoLab's Homepage Dashboard"
             envFrom:
               - secretRef:
                   name: homepage-secrets

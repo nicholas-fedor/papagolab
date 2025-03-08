@@ -99,8 +99,8 @@ spec:
     service:
       app:
         controller: *app
-        type: LoadBalancer
-        externalTrafficPolicy: Local
+        # type: LoadBalancer
+        # externalTrafficPolicy: Local
         annotations:
           lbipam.cilium.io/ips: "192.168.70.40"
         ports:
@@ -144,21 +144,23 @@ spec:
             port: &setup-port 3000
             protocol: TCP
             targetPort: *setup-port
-    # ingress:
-    #   app:
-    #     annotations:
-    #       gethomepage.dev/enabled: "true"
-    #       gethomepage.dev/name: AdGuard
-    #       gethomepage.dev/description: "DNS Ad-Blocking"
-    #       gethomepage.dev/group: Network
-    #       gethomepage.dev/icon: adguard-home.svg
-    #     hosts:
-    #       - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
-    #         paths:
-    #           - path: /
-    #             service:
-    #               identifier: app
-    #               port: http
+    ingress:
+      app:
+        className: internal
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "internal.${SECRET_DOMAIN}"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: AdGuard
+          gethomepage.dev/description: "DNS Ad-Blocking"
+          gethomepage.dev/group: Network
+          gethomepage.dev/icon: adguard-home.svg
+        hosts:
+          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
 
     # Required for the config sync init container
     serviceAccount:

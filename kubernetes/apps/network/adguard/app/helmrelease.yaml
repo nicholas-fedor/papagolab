@@ -84,15 +84,15 @@ spec:
               UNIQUE_FILENAMES: false
               METHOD: WATCH
             resources: *configSyncResources
-    serviceMonitor:
-      app:
-        serviceName: adguard
-        endpoints:
-          - port: http
-            scheme: http
-            path: /
-            interval: 1m
-            scrapeTimeout: 10s
+    # serviceMonitor:
+    #   app:
+    #     serviceName: adguard
+    #     endpoints:
+    #       - port: http
+    #         scheme: http
+    #         path: /
+    #         interval: 1m
+    #         scrapeTimeout: 10s
     service:
       app:
         controller: *app

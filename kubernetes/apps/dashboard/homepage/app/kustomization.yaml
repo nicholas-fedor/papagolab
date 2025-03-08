@@ -1,10 +1,10 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: utilities
 resources:
-  - ./config.yaml
+  - ./configmap.yaml
   - ./helmrelease.yaml
+  - ./rabc.yaml
   - ./secret.sops.yaml
 generatorOptions:
   disableNameSuffixHash: true

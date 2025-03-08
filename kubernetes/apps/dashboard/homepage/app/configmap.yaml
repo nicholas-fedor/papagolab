@@ -1,10 +1,10 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: homepage-configmap
-  namespace: utilities
   labels:
-    app: homepage
+    app.kubernetes.io/name: homepage
 data:
   bookmarks.yaml: ""
   custom.css: ""
@@ -14,7 +14,7 @@ data:
     mode: cluster
   services.yaml: ""
   settings.yaml: |
-    title: "${HOMEPAGE_FILE_HOMEPAGE_TITLE}"
+    title: "PapagoLab Homepage Dashboard"
 
     theme: dark
     color: slate
@@ -24,7 +24,7 @@ data:
     headerStyle: clean
 
     providers:
-      openweathermap: "${OPENWEATHERMAP_TOKEN}"
+      openweathermap: "{{HOMEPAGE_VAR_OPENWEATHERMAP_TOKEN}"
 
     fiveColumns: true
     useEqualHeights: true
@@ -45,8 +45,8 @@ data:
 
     - openweathermap:
         label: Phoenix
-        latitude: "${OPENWEATHERMAP_LATITUDE}"
-        longitude: "${OPENWEATHERMAP_LONGITUDE}"
+        latitude: "{{OPENWEATHERMAP_LATITUDE}}"
+        longitude: "{{OPENWEATHERMAP_LONGITUDE}}"
         units: imperial
         provider: openweathermap
         cache: 5

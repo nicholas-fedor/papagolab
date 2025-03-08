@@ -63,6 +63,9 @@ spec:
               TZ: ${TIMEZONE}
               TLS_CERTIFICATE_PATH: /opt/adguardhome/certs/tls.crt
               TLS_PRIVATE_KEY_PATH: /opt/adguardhome/certs/tls.key
+            envFrom:
+              - secretRef:
+                  name: adguard-auth
             # probes:
             #   liveness: &probes
             #     enabled: true
@@ -153,9 +156,6 @@ spec:
                 service:
                   identifier: app
                   port: http
-        tls:
-          - hosts:
-             - *host
 
     # Required for the config sync init container
     serviceAccount:

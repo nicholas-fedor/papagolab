@@ -14,7 +14,7 @@ data:
     mode: cluster
   services.yaml: ""
   settings.yaml: |
-    title: "{{ env.HOMEPAGE_VAR_HOMEPAGE_TITLE }}"
+    title: "${HOMEPAGE_VAR_HOMEPAGE_TITLE}"
 
     theme: dark
     color: slate
@@ -23,8 +23,8 @@ data:
 
     headerStyle: clean
 
-    # providers:
-    #   openweathermap: "{{ $HOMEPAGE_VAR_OPENWEATHERMAP_TOKEN }}"
+    providers:
+      openweathermap: "${HOMEPAGE_VAR_OPENWEATHERMAP_TOKEN}"
 
     fiveColumns: true
     useEqualHeights: true
@@ -43,30 +43,30 @@ data:
         text_size: xl
         text: Homepage
 
-    # - openweathermap:
-    #     label: Phoenix
-    #     latitude: "{{ HOMEPAGE_VAR_OPENWEATHERMAP_LATITUDE }}"
-    #     longitude: "{{ HOMEPAGE_VAR_OPENWEATHERMAP_LONGITUDE }}"
-    #     units: imperial
-    #     provider: openweathermap
-    #     cache: 5
-    #     format:
-    #       maximumFractionDigits: 1
+    - openweathermap:
+        label: Phoenix
+        latitude: "${HOMEPAGE_VAR_OPENWEATHERMAP_LATITUDE}"
+        longitude: "${HOMEPAGE_VAR_OPENWEATHERMAP_LONGITUDE}"
+        units: imperial
+        provider: openweathermap
+        cache: 5
+        format:
+          maximumFractionDigits: 1
 
-    # - kubernetes:
-    #     cluster:
-    #       show: true
-    #       cpu: true
-    #       memory: true
-    #       showLabel: true
-    #       label: "cluster"
-    #     nodes:
-    #       show: true
-    #       cpu: true
-    #       memory: true
-    #       showLabel: true
+    - kubernetes:
+        cluster:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "cluster"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
 
     - search:
         provider: custom
-        url: "{{ env.HOMEPAGE_VAR_SEARXNG_URL }}/search?q="
+        url: "${HOMEPAGE_VAR_SEARXNG_URL}/search?q="
         target: _blank

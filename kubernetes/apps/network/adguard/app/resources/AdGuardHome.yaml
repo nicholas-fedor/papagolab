@@ -62,7 +62,7 @@ dns:
     - 192.168.70.1
   use_dns64: false
   dns64_prefixes: []
-  serve_http3: false
+  serve_http3: true
   use_http3_upstreams: false
   serve_plain_dns: true
   hostsfile_enabled: true
@@ -72,7 +72,7 @@ tls:
   force_https: true
   port_https: 443
   port_dns_over_tls: 853
-  port_dns_over_quic: 853
+  port_dns_over_quic: 443
   port_dnscrypt: 0
   dnscrypt_config_file: ""
   allow_unencrypted_doh: false

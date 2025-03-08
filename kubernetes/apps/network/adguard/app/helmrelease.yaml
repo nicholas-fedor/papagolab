@@ -59,10 +59,10 @@ spec:
             image:
               repository: adguard/adguardhome
               tag: v0.107.57@sha256:8ed4b2584d04dfb39e6d8fce1fec0304ed19853e4b41f0ea430dbb3fbf3d799b
-            securityContext:
-              capabilities:
-                drop: ["ALL"]
-                add: ["NET_BIND_SERVICE"]
+            # securityContext:
+            #   capabilities:
+            #     drop: ["ALL"]
+            #     add: ["NET_BIND_SERVICE"]
             env:
               TZ: ${TIMEZONE}
               TLS_CERTIFICATE_PATH: /opt/adguardhome/certs/tls.crt

@@ -72,9 +72,9 @@ spec:
             resources:
               requests:
                 cpu: 10m
-                memory: 256M
+                memory: 1G
               limits:
-                memory: 512M
+                memory: 3G
           config-sync:
             image: *configSyncImage
             env:
@@ -131,11 +131,11 @@ spec:
             port: &dns-over-quic-port 443
             protocol: UDP
             targetPort: *dns-over-quic-port
-          init-config:
+          setup:
             enabled: true
-            port: &init-config-port 3000
+            port: &setup-port 3000
             protocol: TCP
-            targetPort: *init-config-port
+            targetPort: *setup-port
     ingress:
       app:
         className: internal

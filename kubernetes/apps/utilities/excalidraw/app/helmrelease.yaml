@@ -83,6 +83,11 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Excalidraw"
+          gethomepage.dev/description: "A virtual whiteboard tool"
+          gethomepage.dev/group: "Utilities"
+          gethomepage.dev/icon: "excalidraw.png"
         hosts:
           - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:

@@ -130,6 +130,11 @@ spec:
         className: external
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "SearXNG"
+          gethomepage.dev/description: "An Internet metasearch engine"
+          gethomepage.dev/group: "Utilities"
+          gethomepage.dev/icon: "searxng.png"
         hosts:
           - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:

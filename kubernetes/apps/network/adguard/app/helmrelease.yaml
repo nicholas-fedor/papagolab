@@ -109,11 +109,11 @@ spec:
             port: 80
             protocol: TCP
             targetPort: 80
-          # https:
-          #   enabled: true
-          #   port: &https-port 443
-          #   protocol: TCP
-          #   targetPort: *https-port
+          https:
+            enabled: true
+            port: &https-port 443
+            protocol: TCP
+            targetPort: *https-port
           dns-tcp:
             enabled: true
             port: &dns-port 53
@@ -144,21 +144,21 @@ spec:
             port: &setup-port 3000
             protocol: TCP
             targetPort: *setup-port
-    ingress:
-      app:
-        annotations:
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: AdGuard
-          gethomepage.dev/description: "DNS Ad-Blocking"
-          gethomepage.dev/group: Network
-          gethomepage.dev/icon: adguard-home.svg
-        hosts:
-          - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                service:
-                  identifier: app
-                  port: http
+    # ingress:
+    #   app:
+    #     annotations:
+    #       gethomepage.dev/enabled: "true"
+    #       gethomepage.dev/name: AdGuard
+    #       gethomepage.dev/description: "DNS Ad-Blocking"
+    #       gethomepage.dev/group: Network
+    #       gethomepage.dev/icon: adguard-home.svg
+    #     hosts:
+    #       - host: "{{ .Release.Name }}.${SECRET_DOMAIN}"
+    #         paths:
+    #           - path: /
+    #             service:
+    #               identifier: app
+    #               port: http
 
     # Required for the config sync init container
     serviceAccount:

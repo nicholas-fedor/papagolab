@@ -61,6 +61,8 @@ spec:
               tag: v0.107.57@sha256:8ed4b2584d04dfb39e6d8fce1fec0304ed19853e4b41f0ea430dbb3fbf3d799b
             env:
               TZ: ${TIMEZONE}
+              TLS_CERTIFICATE_PATH: /opt/adguardhome/certs/tls.crt
+              TLS_PRIVATE_KEY_PATH: /opt/adguardhome/certs/tls.key
             probes:
               liveness: &probes
                 enabled: true
@@ -155,3 +157,10 @@ spec:
         size: 1Gi
         globalMounts:
           - path: /opt/adguardhome/conf
+      certs:
+        enabled: true
+        type: secret
+        name: adguard-tls-secret
+        globalMounts:
+          - path: /opt/adguardhome/certs
+            readOnly: true

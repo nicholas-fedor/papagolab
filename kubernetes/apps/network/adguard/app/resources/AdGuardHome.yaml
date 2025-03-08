@@ -21,7 +21,7 @@ dns:
   ratelimit_whitelist: []
   refuse_any: true
   upstream_dns:
-    - 'https://peplc9l60h.cloudflare-gateway.com/dns-query'
+    - "https://peplc9l60h.cloudflare-gateway.com/dns-query"
   upstream_dns_file: ""
   bootstrap_dns:
     - 172.64.36.1
@@ -78,8 +78,8 @@ tls:
   allow_unencrypted_doh: false
   certificate_chain: ""
   private_key: ""
-  certificate_path: ""
-  private_key_path: ""
+  certificate_path: /opt/adguardhome/certs/tls.crt
+  private_key_path: /opt/adguardhome/certs/tls.key
   strict_sni_check: false
 querylog:
   dir_path: ""
@@ -188,67 +188,67 @@ filters:
     id: 1730062467
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt
-    name: 'CHN: AdRules DNS List'
+    name: "CHN: AdRules DNS List"
     id: 1730062468
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_21.txt
-    name: 'CHN: anti-AD'
+    name: "CHN: anti-AD"
     id: 1730062469
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_35.txt
-    name: 'HUN: Hufilter'
+    name: "HUN: Hufilter"
     id: 1730062470
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_22.txt
-    name: 'IDN: ABPindo'
+    name: "IDN: ABPindo"
     id: 1730062471
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_19.txt
-    name: 'IRN: PersianBlocker list'
+    name: "IRN: PersianBlocker list"
     id: 1730062472
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_43.txt
-    name: 'ISR: EasyList Hebrew'
+    name: "ISR: EasyList Hebrew"
     id: 1730062473
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_25.txt
-    name: 'KOR: List-KR DNS'
+    name: "KOR: List-KR DNS"
     id: 1730062474
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_15.txt
-    name: 'KOR: YousList'
+    name: "KOR: YousList"
     id: 1730062475
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_36.txt
-    name: 'LIT: EasyList Lithuania'
+    name: "LIT: EasyList Lithuania"
     id: 1730062476
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_20.txt
-    name: 'MKD: Macedonian Pi-hole Blocklist'
+    name: "MKD: Macedonian Pi-hole Blocklist"
     id: 1730062477
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_13.txt
-    name: 'NOR: Dandelion Sprouts nordiske filtre'
+    name: "NOR: Dandelion Sprouts nordiske filtre"
     id: 1730062478
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_41.txt
-    name: 'POL: CERT Polska List of malicious domains'
+    name: "POL: CERT Polska List of malicious domains"
     id: 1730062479
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_14.txt
-    name: 'POL: Polish filters for Pi-hole'
+    name: "POL: Polish filters for Pi-hole"
     id: 1730062480
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_17.txt
-    name: 'SWE: Frellwit''s Swedish Hosts File'
+    name: "SWE: Frellwit's Swedish Hosts File"
     id: 1730062481
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_26.txt
-    name: 'TUR: turk-adlist'
+    name: "TUR: turk-adlist"
     id: 1730062482
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_40.txt
-    name: 'TUR: Turkish Ad Hosts'
+    name: "TUR: Turkish Ad Hosts"
     id: 1730062483
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_30.txt
@@ -320,14 +320,14 @@ filters:
     id: 1739049609
 whitelist_filters: []
 user_rules:
-  - '@@||browser.events.data.microsoft.com^$important'
-  - '@@||vlscppe.microsoft.com^$important'
-  - '@@||fpt.microsoft.com^$important'
-  - '@@||dc.services.visualstudio.com^$important'
-  - '@@||api.bookinfo.club^$important'
-  - '@@||www.mkvtoolnix.download^$important'
-  - '@@||mkvtoolnix.download^$important'
-  - '@@||nexus-websocket-a.intercom.io^$client=''192.168.20.2'''
+  - "@@||browser.events.data.microsoft.com^$important"
+  - "@@||vlscppe.microsoft.com^$important"
+  - "@@||fpt.microsoft.com^$important"
+  - "@@||dc.services.visualstudio.com^$important"
+  - "@@||api.bookinfo.club^$important"
+  - "@@||www.mkvtoolnix.download^$important"
+  - "@@||mkvtoolnix.download^$important"
+  - "@@||nexus-websocket-a.intercom.io^$client='192.168.20.2'"
   - ""
 dhcp:
   enabled: false
@@ -573,33 +573,33 @@ filtering:
       answer: 192.168.20.50
     - domain: gitea.papagolabs.com
       answer: 192.168.20.61
-    - domain: '*.gitea.papagolabs.com'
+    - domain: "*.gitea.papagolabs.com"
       answer: 192.168.20.61
     - domain: librenms.papago.casa
       answer: 192.168.40.30
-    - domain: '*.librenms.papago.casa'
+    - domain: "*.librenms.papago.casa"
       answer: 192.168.40.30
-    - domain: '*.tube-archivist.papago.casa'
+    - domain: "*.tube-archivist.papago.casa"
       answer: 192.168.30.13
     - domain: excalidraw.papago.casa
       answer: 192.168.40.32
-    - domain: '*.excalidraw.papago.casa'
+    - domain: "*.excalidraw.papago.casa"
       answer: 192.168.40.32
     - domain: truecommand.papago.casa
       answer: 192.168.40.33
-    - domain: '*.truecommand.papago.casa'
+    - domain: "*.truecommand.papago.casa"
       answer: 192.168.40.33
     - domain: gitlab.papago.casa
       answer: 192.168.40.34
-    - domain: '*.gitlab.papago.casa'
+    - domain: "*.gitlab.papago.casa"
       answer: 192.168.40.34
     - domain: authentik.papago.casa
       answer: 192.168.40.35
-    - domain: '*.authentik.papago.casa'
+    - domain: "*.authentik.papago.casa"
       answer: 192.168.40.35
     - domain: plex-x99.papago.casa
       answer: 192.168.40.36
-    - domain: '*.plex-x99.papago.casa'
+    - domain: "*.plex-x99.papago.casa"
       answer: 192.168.40.36
     - domain: docker01.papagolabs.com
       answer: 192.168.20.71
@@ -611,71 +611,71 @@ filtering:
       answer: 192.168.20.74
     - domain: docker.papagolabs.com
       answer: 192.168.20.70
-    - domain: '*.docker.papagolabs.com'
+    - domain: "*.docker.papagolabs.com"
       answer: 192.168.20.70
-    - domain: '*.it-tools.papago.casa'
+    - domain: "*.it-tools.papago.casa"
       answer: 192.168.40.21
-    - domain: '*.cyberchef.papago.casa'
+    - domain: "*.cyberchef.papago.casa"
       answer: 192.168.40.17
-    - domain: '*.semaphore.papago.casa'
+    - domain: "*.semaphore.papago.casa"
       answer: 192.168.40.18
-    - domain: '*.radarr.papago.casa'
+    - domain: "*.radarr.papago.casa"
       answer: 192.168.30.5
-    - domain: '*.sonarr.papago.casa'
+    - domain: "*.sonarr.papago.casa"
       answer: 192.168.30.6
-    - domain: '*.lidarr.papago.casa'
+    - domain: "*.lidarr.papago.casa"
       answer: 192.168.30.12
-    - domain: '*.syncthing.papago.casa'
+    - domain: "*.syncthing.papago.casa"
       answer: 192.168.30.11
-    - domain: '*.navidrome.papago.casa'
+    - domain: "*.navidrome.papago.casa"
       answer: 192.168.30.17
     - domain: filezilla.papago.casa
       answer: 192.168.30.19
-    - domain: '*.filezilla.papago.casa'
+    - domain: "*.filezilla.papago.casa"
       answer: 192.168.30.19
     - domain: metube.papago.casa
       answer: 192.168.30.20
-    - domain: '*.metube.papago.casa'
+    - domain: "*.metube.papago.casa"
       answer: 192.168.30.20
-    - domain: '*.readarr.papago.casa'
+    - domain: "*.readarr.papago.casa"
       answer: 192.168.30.15
     - domain: komodo.papago.casa
       answer: 192.168.40.37
-    - domain: '*.komodo.papago.casa'
+    - domain: "*.komodo.papago.casa"
       answer: 192.168.40.37
-    - domain: '*.homarr.papago.casa'
+    - domain: "*.homarr.papago.casa"
       answer: 192.168.40.13
     - domain: proxmox04.papagolabs.com
       answer: 192.168.20.34
     - domain: proxmox05.papagolabs.com
       answer: 192.168.20.35
-    - domain: '*.gitlab-pages.papago.casa'
+    - domain: "*.gitlab-pages.papago.casa"
       answer: 192.168.40.34
     - domain: gitlab-pages.papago.casa
       answer: 192.168.40.34
     - domain: adguard-backup.papago.casa
       answer: 192.168.20.11
-    - domain: '*.adguard-backup.papago.casa'
+    - domain: "*.adguard-backup.papago.casa"
       answer: 192.168.20.11
     - domain: homepage.papago.casa
       answer: 192.168.40.16
-    - domain: '*.homepage.papago.casa'
+    - domain: "*.homepage.papago.casa"
       answer: 192.168.40.16
     - domain: eui64-calculator.papago.casa
       answer: 192.168.40.24
-    - domain: '*.eui64-calculator.papago.casa'
+    - domain: "*.eui64-calculator.papago.casa"
       answer: 192.168.40.24
-    - domain: '*.calibre-web.papago.casa'
+    - domain: "*.calibre-web.papago.casa"
       answer: 192.168.30.16
     - domain: docker01.papagolabs.com
       answer: 192.168.20.71
     - domain: gotify.papago.casa
       answer: 192.168.40.29
-    - domain: '*.gotify.papago.casa'
+    - domain: "*.gotify.papago.casa"
       answer: 192.168.40.29
     - domain: harbor.papago.casa
       answer: 192.168.40.23
-    - domain: '*.harbor.papago.casa'
+    - domain: "*.harbor.papago.casa"
       answer: 192.168.40.23
     - domain: swarm01.papagolabs.com
       answer: 192.168.20.81
@@ -685,7 +685,7 @@ filtering:
       answer: 192.168.20.83
     - domain: swarm.papagolabs.com
       answer: 192.168.20.80
-    - domain: '*.swarm.papagolabs.com'
+    - domain: "*.swarm.papagolabs.com"
       answer: 192.168.20.80
     - domain: m920q.papago.casa
       answer: 192.168.80.2

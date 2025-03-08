@@ -37,23 +37,23 @@ spec:
             fsGroup: 65534
             fsGroupChangePolicy: OnRootMismatch
             seccompProfile: { type: RuntimeDefault }
-        initContainers:
-          init-config:
-            image: &configSyncImage
-              repository: ghcr.io/kiwigrid/k8s-sidecar
-              tag: 1.30.1@sha256:439c5ac985827e6a85ad4490a66320b62aefd9e8c6d06fdb1d9c83d582f8a902
-            env:
-              FOLDER: /opt/adguardhome/conf
-              LABEL: app.kubernetes.io/config-owner
-              LABEL_VALUE: *app
-              UNIQUE_FILENAMES: false
-              METHOD: LIST
-            resources: &configSyncResources
-              requests:
-                cpu: 10m
-                memory: 10Mi
-              limits:
-                memory: 128Mi
+        # initContainers:
+        #   init-config:
+        #     image: &configSyncImage
+        #       repository: ghcr.io/kiwigrid/k8s-sidecar
+        #       tag: 1.30.1@sha256:439c5ac985827e6a85ad4490a66320b62aefd9e8c6d06fdb1d9c83d582f8a902
+        #     env:
+        #       FOLDER: /opt/adguardhome/conf
+        #       LABEL: app.kubernetes.io/config-owner
+        #       LABEL_VALUE: *app
+        #       UNIQUE_FILENAMES: false
+        #       METHOD: LIST
+        #     resources: &configSyncResources
+        #       requests:
+        #         cpu: 10m
+        #         memory: 10Mi
+        #       limits:
+        #         memory: 128Mi
         containers:
           app:
             image:
@@ -78,15 +78,15 @@ spec:
                 memory: 1G
               limits:
                 memory: 3G
-          config-sync:
-            image: *configSyncImage
-            env:
-              FOLDER: /opt/adguardhome/conf
-              LABEL: app.kubernetes.io/config-owner
-              LABEL_VALUE: *app
-              UNIQUE_FILENAMES: false
-              METHOD: WATCH
-            resources: *configSyncResources
+          # config-sync:
+          #   image: *configSyncImage
+          #   env:
+          #     FOLDER: /opt/adguardhome/conf
+          #     LABEL: app.kubernetes.io/config-owner
+          #     LABEL_VALUE: *app
+          #     UNIQUE_FILENAMES: false
+          #     METHOD: WATCH
+          #   resources: *configSyncResources
     # serviceMonitor:
     #   app:
     #     serviceName: adguard

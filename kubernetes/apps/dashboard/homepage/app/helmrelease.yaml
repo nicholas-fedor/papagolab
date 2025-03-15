@@ -31,6 +31,7 @@ spec:
               repository: ghcr.io/gethomepage/homepage
               tag: v1.0.0@sha256:c33ccb1f850c178bf424cd19dca87f0dc796be3e40927ea1c7416809cd6c71c6
             env:
+              HOMEPAGE_ALLOWED_HOSTS: "homepage.papagolab.com"
               PORT: &port 3000
               TZ: "${TIMEZONE}"
             envFrom:

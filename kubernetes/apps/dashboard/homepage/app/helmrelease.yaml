@@ -144,4 +144,4 @@ spec:
         enabled: true
         type: emptyDir
         globalMounts:
-          - path: /app/.next
+          - path: /app/.next/server/pages

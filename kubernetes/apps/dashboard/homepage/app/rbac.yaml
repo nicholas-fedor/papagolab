@@ -7,7 +7,7 @@ metadata:
   name: homepage-clusterrole
 rules:
   # Required for the services to show up in the dashboard
-  - apiGroups: ["networking.k8s.io"]
+  - apiGroups: ["extensions", "networking.k8s.io"]
     resources: ["ingresses"]
     verbs: ["get", "list", "watch"]
   # Required to get the pod status in the dashboard

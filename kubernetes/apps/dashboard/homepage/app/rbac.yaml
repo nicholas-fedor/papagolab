@@ -12,7 +12,7 @@ rules:
     verbs: ["get", "list", "watch"]
   # Required to get the pod status in the dashboard
   - apiGroups: [""]
-    resources: ["namespaces", "pods", "nodes"]
+    resources: ["namespaces", "pods", "nodes", "services"]
     verbs: ["get", "list", "watch"]
   # Required to get the metrics in the dashboard
   - apiGroups: ["metrics.k8s.io"]

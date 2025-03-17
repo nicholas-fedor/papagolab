@@ -140,3 +140,8 @@ spec:
         globalMounts:
           - path: /app/config/logs
           - path: /tmp
+      next-cache:
+        enabled: true
+        type: emptyDir
+        globalMounts:
+          - path: /app/.next

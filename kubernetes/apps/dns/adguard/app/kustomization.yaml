@@ -7,14 +7,4 @@ resources:
   - ./helmrelease.yaml
   - ./rbac.yaml
   - ./secret.sops.yaml
-configMapGenerator:
-  - name: adguard
-    options:
-      labels:
-        app.kubernetes.io/config-owner: adguard
-    files:
-      - AdGuardHome.yaml=./resources/AdGuardHome.yaml
-generatorOptions:
-  disableNameSuffixHash: true
-  annotations:
-    kustomize.toolkit.fluxcd.io/substitute: enabled
+  - ./resources/adguard-config.sops.yaml

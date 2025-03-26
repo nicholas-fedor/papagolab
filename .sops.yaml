@@ -10,7 +10,7 @@ creation_rules:
     key_groups:
       - age:
           - "age1u92vmxr2k60y7mzumzdcmha780meu9smt0dewvj6ch38f2fcxe6s6txz88"
-  - path_regex: kubernetes/apps/dns/adguard/app/resources/AdGuardHome.yaml
+  - path_regex: kubernetes/apps/dns/adguard/app/resources/adguard-config.sops.yaml
     key_groups:
       - age:
           - "age1u92vmxr2k60y7mzumzdcmha780meu9smt0dewvj6ch38f2fcxe6s6txz88"

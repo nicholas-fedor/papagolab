@@ -11,6 +11,7 @@ creation_rules:
       - age:
           - "age1u92vmxr2k60y7mzumzdcmha780meu9smt0dewvj6ch38f2fcxe6s6txz88"
   - path_regex: kubernetes/apps/dns/adguard/app/resources/adguard-config.sops.yaml
+    encrypted_regex: "^(data|stringData)$"
     key_groups:
       - age:
           - "age1u92vmxr2k60y7mzumzdcmha780meu9smt0dewvj6ch38f2fcxe6s6txz88"
